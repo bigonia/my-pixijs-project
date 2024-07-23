@@ -1,5 +1,8 @@
 import { Application, Sprite, Assets } from 'pixi.js';
 import * as PIXI from 'pixi.js';
+
+import sampleImage from './assets/images/sample.png';
+
 // import { Buffer } from 'buffer';
 // const PIXI   = require('pixi.js');
 // const { Application, Sprite, Assets } = require('pixi.js');
@@ -52,11 +55,12 @@ import * as PIXI from 'pixi.js';
 
 
         // load the texture
-        Assets.add({alias: 'pic1', src: 'sample.png'});
-        let sprite2 = await Assets.load('pic1');
-        app.stage.addChild(sprite2);
-        sprite2.x = app.screen.width / 3;
-        sprite2.y = app.screen.height / 3;
+        // Assets.add({alias: 'pic1', src: sampleImage});
+        // Assets.add({alias: 'pic1', src: './assets/images/sample.png'});
+        // let sprite2 = await Assets.load('pic1');
+        // app.stage.addChild(sprite2);
+        // sprite2.x = app.screen.width / 3;
+        // sprite2.y = app.screen.height / 3;
 
 
         // // 创建 PixiJS Loader 实例
