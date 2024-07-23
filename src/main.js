@@ -56,11 +56,23 @@ import sampleImage from './assets/images/sample.png';
 
         // load the texture
         // Assets.add({alias: 'pic1', src: sampleImage});
-        // Assets.add({alias: 'pic1', src: './assets/images/sample.png'});
-        // let sprite2 = await Assets.load('pic1');
-        // app.stage.addChild(sprite2);
-        // sprite2.x = app.screen.width / 3;
-        // sprite2.y = app.screen.height / 3;
+        Assets.add({alias: 'pic1', src: './assets/images/sample.png'});
+        let texture2 = await Assets.load('pic1');
+        const sprite2 = new Sprite(texture2);
+        app.stage.addChild(sprite2);
+        sprite2.x = app.screen.width / 3;
+        sprite2.y = app.screen.height / 3;
+
+
+        // Add a container to center our sprite stack on the page
+        const container = new PIXI.Container({
+            x:app.screen.width / 2,
+            y:app.screen.height / 2,
+        });
+
+        app.stage.addChild(container);
+        
+        let container2 = new PIXI.Container();
 
 
         // // 创建 PixiJS Loader 实例
