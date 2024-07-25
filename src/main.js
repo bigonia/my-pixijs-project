@@ -75,6 +75,63 @@ import sampleImage from './assets/images/sample.png';
         let container2 = new PIXI.Container();
 
 
+// masking==================================
+
+// Create window frame
+let frame = new PIXI.Graphics({
+  x:320 - 104,
+  y:180 - 104
+})
+.rect(0, 0, 208, 208)
+.fill(0x666666)
+.stroke({ color: 0xffffff, width: 4, alignment: 0 })
+
+app.stage.addChild(frame);
+
+// Create a graphics object to define our mask
+let mask = new PIXI.Graphics()
+// Add the rectangular area to show
+ .rect(0,0,200,200)
+ .fill(0xffffff);
+
+// Add container that will hold our masked content
+let maskContainer = new PIXI.Container();
+// Set the mask to use our graphics object from above
+maskContainer.mask = mask;
+// Add the mask as a child, so that the mask is positioned relative to its parent
+maskContainer.addChild(mask);
+// Offset by the window's frame width
+maskContainer.position.set(4,4);
+// And add the container to the window!
+frame.addChild(maskContainer);
+
+// Create contents for the masked container
+let text = new PIXI.Text({
+  text:'This text will scroll up and be masked, so you can see how masking works.  Lorem ipsum and all that.\n\n' +
+  'You can put anything in the container and it will be masked!',
+  style:{
+    fontSize: 24,
+    fill: 0x1010ff,
+    wordWrap: true,
+    wordWrapWidth: 180
+  },
+  x:10
+});
+
+maskContainer.addChild(text);
+
+// Add a ticker callback to scroll the text up and down
+let elapsed2 = 0.0;
+app.ticker.add((ticker) => {
+  // Update the text's y coordinate to scroll it
+  elapsed2 += ticker.deltaTime;
+  text.y = 10 + -100.0 + Math.cos(elapsed2/50.0) * 100.0;
+});
+
+//交互-------------------------
+bunny.on('pointerdown', (event) => { alert('clicked!'); });
+bunny.eventMode = 'static';
+
         // // 创建 PixiJS Loader 实例
         // const loader = PIXI.Loader.shared;
 

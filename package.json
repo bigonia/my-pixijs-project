@@ -13,7 +13,8 @@
   "dependencies": {
     "@pixi/assets": "^7.4.2",
     "pixi.js": "^8.2.5",
-    "pixi.js-legacy": "^7.4.2"
+    "pixi.js-legacy": "^7.4.2",
+    "@pixi/spine-pixi":"^2.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.24.9",
