@@ -1,6 +1,6 @@
 ## project for pixijs learnning
 
 ### SpineBoy 
- Spine plugin and moving
+Spine plugin (@pixi/spine-pixi) and moving
 
  
